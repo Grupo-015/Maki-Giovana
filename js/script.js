@@ -1,18 +1,18 @@
-function login() { 
+// function login() { 
 
-    firebase.auth().signInWithEmailAndPassword(form.email().value, form.senha().value).then(response => {
-        window.location.href = "html/operacaoV2.html";
-    }).catch(error => {
-        alert("Usuário ou senha incorretos");
-        console.log("Erro", error);
-    });  
+//     firebase.auth().signInWithEmailAndPassword(form.email().value, form.senha().value).then(response => {
+//         window.location.href = "html/operacaoV2.html";
+//     }).catch(error => {
+//         alert("Usuário ou senha incorretos");
+//         console.log("Erro", error);
+//     });  
     
-}
+// }
 
-const form = {
-    email: () => document.getElementById("email"),
-    senha: () => document.getElementById("senha"),
-}
+// const form = {
+//     email: () => document.getElementById("email"),
+//     senha: () => document.getElementById("senha"),
+// }
 
 function transicao() {
 
