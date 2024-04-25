@@ -44,17 +44,48 @@ function calcula() {
     var quantidadeTortaDeCookieCarameloENutella = parseInt(document.getElementById("tortaDeCookieCarameloENutella").value) || 0;
     var quantidadeTortaDeCookieNutella = parseInt(document.getElementById("tortaDeCookieNutella").value) || 0;
 
+    // Coleta valores que deverão ser subtraidos como desconto
+
+    var descontoFixo = parseFloat(document.getElementById('descontoFixo').value) || 0;
+
     // Calcula o valor total do pedido
     var valorTotal = (quantidadeCookieTradicionalGrande * precoCookieTradicionalGrande) +
                      (quantidadeCookieTradicionalMini * precoCookieTradicionalMini) +
                      (quantidadeCookieRecheadoDoceDeLeite * precoCookieRecheadoDoceDeLeite) +
                      (quantidadeCookieRecheadoNutella * precoCookieRecheadoNutella) +
                      (quantidadeTortaDeCookieCarameloENutella * precoTortaDeCookieCarameloENutella) +
-                     (quantidadeTortaDeCookieNutella * precoTortaDeCookieNutella);
+                     (quantidadeTortaDeCookieNutella * precoTortaDeCookieNutella) -
+                     (descontoFixo);
+
+    var desconto = valorTotal * ((parseFloat(document.getElementById('descontoPercentual').value) || 0) / 100);
+    var valorTotalComDescontoPercentual = valorTotal - desconto;
 
     // Atualizar o campo de valor total no formulário
-    document.getElementById("valorTotal").value = "R$ " + valorTotal.toFixed(2);
+    if (valorTotalComDescontoPercentual == 0) {
+        document.getElementById("valorTotal").value = "R$ " + valorTotal.toFixed(2);
+    }
+    else {
+        document.getElementById("valorTotal").value = "R$ " + valorTotalComDescontoPercentual.toFixed(2);
+    }
+    
 }
+
+
+// function aplicarDesconto() {
+
+
+//     var valorTotal = parseFloat(document.getElementById('valorTotal').value) || 0;
+
+//     // Aplicar desconto em valor fixo
+//     valorTotal -= descontoFixo;
+
+//     // Aplicar desconto em percentual
+//     var descontoPercentualValor = (descontoPercentual / 100) * valorTotal;
+//     valorTotal -= descontoPercentualValor;
+
+//     // Atualizar o campo de valor total no formulário
+//     document.getElementById('valorTotal').value = "R$ " + valorTotal.toFixed(2);
+// }
 
 function verificaCookieTradicionalGrande() {
 
@@ -169,3 +200,5 @@ function somaTortaDeCookieNutella() {
     calcula();
 
 }
+
+
