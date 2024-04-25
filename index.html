@@ -91,7 +91,7 @@
                             <div><label for="valorTotal">Valor Total do Pedido</label></div>
                             <input class="input" type="text" id="valorTotal" placeholder="Valor Total" disabled>
                             <img src="png/icons8-biscoito-48.png" id="imagem" onclick="calcula()">
-                        </div>
+                        </div>  
     
                     </div>
 
@@ -115,6 +115,25 @@
                         <div><input class="input" type="date" id="data-entrega" name="data-entrega"></div>
 
                     </div>
+                </div>
+            </div>
+
+            <div class="sanfona-elemento">
+                <input type="checkbox" id="elemento4">
+                <label for="elemento4">Sub-Total</label>
+                <div class="conteudo">
+                    
+                    
+                    <div class="form-div">
+
+                        <input class="input" id="descontoFixo" type="text" placeholder="Desconto Valor Fixo" onchange="calcula()">
+                        <input class="input" id="descontoPercentual" type="text" placeholder="Desconto em Percentual" onchange="calcula()">
+                        <!-- <input class="input" id="taxaDeEntrega" type="text" placeholder="Taxa de Entrega" onchange="calcula()"> -->
+
+
+                    </div>
+
+
                 </div>
             </div>
 
